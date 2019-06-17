@@ -63,6 +63,13 @@ g.map(sns.kdeplot, "Fare")
 g = sns.FacetGrid(titanic_train, row="Pclass", col="Sex", hue="Survived") 
 g.map(sns.kdeplot, "Age")
 
+sns.lmplot(data=titanic_train, x = 'Fare', y='Age', hue='Survived', 
+           fit_reg=False, size = 6,  aspect = 1.5);
+plt.vlines(x=0.8, ymin=1, ymax=7);
+plt.vlines(x=1.75, ymin=1, ymax=7);
+plt.hlines(y=5.2, xmin=0.8, xmax=1.75);
+
+
 titanic_test = pd.read_csv("C:/Users/Algorithmica/Downloads/all/test.csv")
 print(titanic_test.shape)
 titanic_test['Survived'] = 0
